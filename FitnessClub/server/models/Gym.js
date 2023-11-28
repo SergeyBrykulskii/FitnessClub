@@ -13,10 +13,6 @@ const GymSchema = new mongoose.Schema({
         min: 3,
         max: 40,
     },
-    memberships: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Membership",
-    },
 },
 {
     timestamps: true,
