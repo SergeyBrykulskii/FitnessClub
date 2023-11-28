@@ -32,6 +32,12 @@ app.post('/membership', checkAuth, MembershipController.create);
 app.patch('/membership/:id', checkAuth, MembershipController.update);
 app.delete('/membership/:id', checkAuth, MembershipController.deleteById);
 
+app.get('/news', NewsController.getAll);
+app.get('/news/:id', NewsController.getById);
+app.post('/news', checkAuth, NewsController.create);
+app.patch('/news/:id', checkAuth, NewsController.update);
+app.delete('/news/:id', checkAuth, NewsController.deleteById);
+
 const port = 7000;
 
 app.listen(port, (err) => {
