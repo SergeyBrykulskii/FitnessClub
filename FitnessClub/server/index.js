@@ -1,8 +1,9 @@
 import express from 'express';
 import mongoose from 'mongoose';
 
-import { loginValidation } from './validations/index.js';
+import { loginValidation, registrationValidation } from './validations/index.js';
 import { UserController, GymController, MembershipController, NewsController } from './controllers/index.js';
+import { handleValidationErrors } from './utils/index.js';
 
 mongoose.connect(
     'mongodb+srv://admin:RDxWMFKWxkJ1K8Uh@cluster0.ea1ohvk.mongodb.net/fitnessclub?retryWrites=true&w=majority',
@@ -15,6 +16,9 @@ mongoose.connect(
 const app = express();
 
 app.use(express.json());
+
+app.post('/auth/login', loginValidation, handleValidationErrors, UserController.login)
+app.post('/auth/registration', registrationValidation, handleValidationErrors, UserController.registration)
 
 const port = 7000;
 

@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 
 import User from '../models/User';
 
-export const register = async (req, res) => {
+export const registration = async (req, res) => {
     try {
         const password = req.body.password;
         const salt = await bcrypt.genSalt(13);
