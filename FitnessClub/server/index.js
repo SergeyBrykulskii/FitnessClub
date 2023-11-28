@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 
+import { loginValidation } from './validations/index.js';
 import { UserController, GymController, MembershipController, NewsController } from './controllers/index.js';
 
 mongoose.connect(
