@@ -13,8 +13,9 @@ mongoose.connect(
 
 const app = express();
 
-const port = 7000;
+app.use(express.json());
 
+const port = 7000;
 
 app.listen(port, (err) => {
     if (err) {
