@@ -26,6 +26,12 @@ app.post('/gym', checkAuth, GymController.create);
 app.patch('/gym/:id', checkAuth, GymController.update);
 app.delete('/gym/:id', checkAuth, GymController.deleteById);
 
+app.get('/memberships', MembershipController.getAll);
+app.get('/membership/:id', MembershipController.getById);
+app.post('/membership', checkAuth, MembershipController.create);
+app.patch('/membership/:id', checkAuth, MembershipController.update);
+app.delete('/membership/:id', checkAuth, MembershipController.deleteById);
+
 const port = 7000;
 
 app.listen(port, (err) => {
