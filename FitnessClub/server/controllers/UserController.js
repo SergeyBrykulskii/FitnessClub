@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 
-import User from '../models/User';
+import User from '../models/User.js';
 
 export const registration = async (req, res) => {
     try {
@@ -27,7 +27,7 @@ export const registration = async (req, res) => {
             },
         );
 
-        const { passwordHash, ...data } = user._doc();
+        const { passwordHash, ...data } = user._doc;
 
         res.json({
             data,
@@ -74,7 +74,7 @@ export const login = async (req, res) => {
             },
         );
 
-        const { passwordHash, ...data } = user._doc();
+        const { passwordHash, ...data } = user._doc;
 
         res.json({
             data,
@@ -87,4 +87,3 @@ export const login = async (req, res) => {
         });
     }
 };
-

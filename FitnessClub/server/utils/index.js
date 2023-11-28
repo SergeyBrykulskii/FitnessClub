@@ -1,1 +1,1 @@
-export * as handleValidationErrors from './handleValidationErrors'
+export { default as handleValidationErrors } from './handleValidationErrors.js'

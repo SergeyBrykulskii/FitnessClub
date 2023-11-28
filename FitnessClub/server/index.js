@@ -17,8 +17,8 @@ const app = express();
 
 app.use(express.json());
 
-app.post('/auth/login', loginValidation, handleValidationErrors, UserController.login)
-app.post('/auth/registration', registrationValidation, handleValidationErrors, UserController.registration)
+app.post('/auth/login', loginValidation.loginValidation, handleValidationErrors, UserController.login)
+app.post('/auth/registration', registrationValidation.registrationValidation, handleValidationErrors, UserController.registration)
 
 const port = 7000;
 
