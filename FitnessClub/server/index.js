@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import { UserController, GymController, MembershipController, NewsController } from './controllers/index.js';
 
 mongoose.connect(
-    'mongodb+srv://admin:RDxWMFKWxkJ1K8Uh@cluster0.ea1ohvk.mongodb.net/?retryWrites=true&w=majority',
+    'mongodb+srv://admin:RDxWMFKWxkJ1K8Uh@cluster0.ea1ohvk.mongodb.net/fitnessclub?retryWrites=true&w=majority',
 ).then(() => {
     console.log('Connected to DB');
 }).catch((err) => { 
