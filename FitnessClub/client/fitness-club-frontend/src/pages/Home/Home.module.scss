@@ -1,0 +1,13 @@
+.membershipList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Новый ряд заполняется слева направо */
+  gap: 20px; /* Отступы между элементами */
+}
+
+@media (max-width: 768px) {
+  .membershipList {
+    flex-direction: column;
+    gap: 0; /* Убираем отступы, чтобы элементы были разделены вертикально */
+  }
+}

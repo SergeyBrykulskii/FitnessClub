@@ -1,0 +1,47 @@
+.membershipCard {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.membershipCard:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.membershipCard h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.membershipCard p {
+  margin-bottom: 10px;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.description {
+  margin-bottom: 10px;
+}
+
+.price {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.gym {
+  color: #888888;
+  margin-bottom: 5px;
+}
+
+.dates {
+  color: #888888;
+}
