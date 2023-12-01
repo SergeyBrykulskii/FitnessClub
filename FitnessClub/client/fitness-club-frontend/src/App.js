@@ -1,8 +1,8 @@
-import './App.css';
-import React from 'react';
-import { Header } from './components';
-import { Route, Routes } from 'react-router-dom';
-import { Home, Registration } from './pages';
+import "./App.css";
+import React from "react";
+import { Header } from "./components";
+import { Route, Routes } from "react-router-dom";
+import { Home, Login, Registration } from "./pages";
 
 function App() {
   return (
@@ -10,9 +10,9 @@ function App() {
       <Header />
       <>
         <Routes>
-          <Route path="/" element={<Home/>} />
-          {/* <Route path="/login" element={<h1>Login</h1>} /> */}
-          <Route path='/registration' element={<Registration/>} />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/registration" element={<Registration />} />
         </Routes>
       </>
     </div>
