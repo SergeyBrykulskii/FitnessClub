@@ -1,39 +1,49 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 import { Button } from "../index";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { logout, selectIsAuth } from "../../redux/slices/auth";
 
 import styles from "./Header.module.scss";
 
 export const Header = () => {
-    const isAuth = false;
+  const dispatch = useDispatch();
+  const isAuth = useSelector(selectIsAuth);
 
-    return (
-        <div className={styles.header}>
-            <Link className={styles.logo} to="/">
-                <div>F-club</div>
+  const onClickLogout = () => {
+    if (window.confirm("Are you shure?")) {
+      dispatch(logout());
+      window.localStorage.removeItem("token");
+    }
+  };
+
+  return (
+    <div className={styles.header}>
+      <Link className={styles.logo} to="/">
+        <div>F-club</div>
+      </Link>
+      <div className={styles.buttons}>
+        {isAuth ? (
+          <>
+            <Link to="/profile">
+              <Button text="Profile" />
             </Link>
-            <div className={styles.buttons}>
-                {isAuth ? (
-                    <>
-                        <Link to="/profile">
-                            <Button text="Profile" />
-                        </Link>
-                        <Link to="/logout">
-                            <Button text="Logout" />
-                        </Link>
-                    </>
-                ) : (
-                    <>
-                        <Link to="/login">
-                            <Button text="Login" />
-                        </Link>
-                        <Link to="/registration">
-                            <Button text="Registration" />
-                        </Link>
-                    </>
-                )}
-
-            </div>
-        </div>
-    )
+            <Link to="/">
+              <Button text="Logout" onClick={onClickLogout} />
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link to="/login">
+              <Button text="Login" />
+            </Link>
+            <Link to="/registration">
+              <Button text="Registration" />
+            </Link>
+          </>
+        )}
+      </div>
+    </div>
+  );
 };
