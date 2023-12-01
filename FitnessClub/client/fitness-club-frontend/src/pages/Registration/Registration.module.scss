@@ -1,0 +1,25 @@
+.registrationForm {
+  background-color: #f2f2f2;
+  padding: 16px;
+  border-radius: 4px;
+  width: 300px; /* Установите желаемую ширину формы */
+  margin: 50px auto; /* Центрируйте форму по горизонтали и добавьте небольшой отступ сверху */
+}
+
+.registrationForm form {
+  display: grid;
+  gap: 12px;
+}
+
+.registrationForm label {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.registrationForm input {
+  width: 95%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
