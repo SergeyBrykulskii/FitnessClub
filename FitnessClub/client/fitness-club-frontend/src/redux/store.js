@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { membershipsReducer } from './slices/membership';
+
 
 const store = configureStore({
     reducer: {
-        // here we will be adding reducers
+        memberships: membershipsReducer,
     },
 });
 

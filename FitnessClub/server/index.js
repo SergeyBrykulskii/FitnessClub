@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
 
 import { loginValidation, registrationValidation } from './validations/index.js';
 import { UserController, GymController, MembershipController, NewsController } from './controllers/index.js';
@@ -14,7 +15,7 @@ mongoose.connect(
 });
 
 const app = express();
-
+app.use(cors());
 app.use(express.json());
 
 app.post('/auth/login', loginValidation.loginValidation, handleValidationErrors, UserController.login)
