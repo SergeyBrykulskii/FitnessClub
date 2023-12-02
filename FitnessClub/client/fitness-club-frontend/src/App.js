@@ -2,7 +2,7 @@ import "./App.css";
 import React from "react";
 import { Header } from "./components";
 import { Route, Routes } from "react-router-dom";
-import { Home, Login, Registration } from "./pages";
+import { AddMembership, Home, Login, Registration } from "./pages";
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registration" element={<Registration />} />
+          <Route path="/addMembership" element={<AddMembership/>} />
         </Routes>
       </>
     </div>

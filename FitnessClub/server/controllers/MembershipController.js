@@ -1,4 +1,5 @@
 import Membership from '../models/Membership.js';
+import Gym from '../models/Gym.js';
 
 export const getAll = (req, res) => {
     Membership.find()
@@ -89,4 +90,30 @@ export const deleteById = (req, res) => {
                 message: 'Что-то пошло не так',
             });
         });
+};
+
+export const createWithGymName = async (req, res) => {
+    try {
+        const { gymName, ...otherData } = req.body;
+
+        const gym = await Gym.findOne({ name: gymName });
+
+        if (!gym) {
+            return res.status(404).json({ message: 'Спортзал не найден' });
+        }
+
+        const membership = new Membership({
+            ...otherData,
+            gym: gym._id,
+        });
+
+        await membership.save();
+
+        res.json(membership);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({
+            message: 'Что-то пошло не так',
+        });
+    }
 };

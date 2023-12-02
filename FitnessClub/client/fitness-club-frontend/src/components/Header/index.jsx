@@ -26,8 +26,8 @@ export const Header = () => {
       <div className={styles.buttons}>
         {isAuth ? (
           <>
-            <Link to="/profile">
-              <Button text="Profile" />
+            <Link to="/addMembership">
+              <Button text="Add" />
             </Link>
             <Link to="/">
               <Button text="Logout" onClick={onClickLogout} />

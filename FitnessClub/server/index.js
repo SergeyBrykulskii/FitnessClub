@@ -32,6 +32,7 @@ app.get('/membership/:id', MembershipController.getById);
 app.post('/membership', checkAuth, MembershipController.create);
 app.patch('/membership/:id', checkAuth, MembershipController.update);
 app.delete('/membership/:id', checkAuth, MembershipController.deleteById);
+app.post('/membershipGymName', checkAuth, MembershipController.createWithGymName);
 
 app.get('/news', NewsController.getAll);
 app.get('/news/:id', NewsController.getById);
