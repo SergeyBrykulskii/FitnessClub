@@ -25,7 +25,6 @@ export const Login = () => {
   });
 
   const onSubmit = async (values) => {
-    console.log(values)
     const data = await dispatch(fetchAuth(values));
 
     if (!data.payload) {
