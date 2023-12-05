@@ -1,0 +1,20 @@
+.container {
+  width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.container p {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.container p:first-child {
+  font-weight: bold;
+}
+
+.container p:last-child {
+  color: #888;
+}

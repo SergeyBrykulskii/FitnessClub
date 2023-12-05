@@ -29,6 +29,9 @@ export const Header = () => {
             <Link to="/addMembership">
               <Button text="Add" />
             </Link>
+            <Link to="/profile">
+              <Button text="Profile" />
+            </Link>
             <Link to="/">
               <Button text="Logout" onClick={onClickLogout} />
             </Link>

@@ -20,6 +20,7 @@ app.use(express.json());
 
 app.post('/auth/login', loginValidation.loginValidation, handleValidationErrors, UserController.login)
 app.post('/auth/registration', registrationValidation.registrationValidation, handleValidationErrors, UserController.registration)
+app.get('/auth/me', checkAuth, UserController.getMe);
 
 app.get('/gyms', GymController.getAll);
 app.get('/gym/:id', GymController.getById);
