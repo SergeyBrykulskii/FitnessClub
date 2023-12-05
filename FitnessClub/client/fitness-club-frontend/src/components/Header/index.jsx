@@ -20,9 +20,14 @@ export const Header = () => {
 
   return (
     <div className={styles.header}>
-      <Link className={styles.logo} to="/">
-        <div>F-club</div>
-      </Link>
+      <div className={styles.pages}>
+        <Link className={styles.logo} to="/">
+          <div>F-club</div>
+        </Link>
+        <Link className={styles.logo} to="/news">
+          <div>News</div>
+        </Link>
+      </div>
       <div className={styles.buttons}>
         {isAuth ? (
           <>
