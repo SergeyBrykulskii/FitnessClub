@@ -6,10 +6,7 @@ import axios from "axios";
 
 export const Profile = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => {
-    console.log(state);
-    return state.auth;
-  });
+  const user = useSelector((state) => state.auth);
 
   const isLoading = user.userInfoStatus === "loading";
   const [timezone, setTimezone] = useState("");
@@ -45,16 +42,19 @@ export const Profile = () => {
     return <p>Loading...</p>;
   }
 
+  const formattedCreatedAt = new Date(user.userInfo.createdAt).toLocaleString();
+  const formattedUpdatedAt = new Date(user.userInfo.updatedAt).toLocaleString();
+
   return (
     <div className={styles.container}>
       {!isLoading && (
         <div>
           <p>Name: {user.userInfo.name}</p>
           <p>Email: {user.userInfo.email}</p>
-          <p>Created At: {user.userInfo.createdAt}</p>
-          <p>Updated At: {user.userInfo.updatedAt}</p>
+          <p>Created At: {formattedCreatedAt}</p>
+          <p>Updated At: {formattedUpdatedAt}</p>
           <p>Timezone: {timezone}</p>
-          <img src={dogImage} alt="Dog" />
+          <img className={styles.dogImage} src={dogImage} alt="Dog" />
           <p>{joke}</p>
         </div>
       )}

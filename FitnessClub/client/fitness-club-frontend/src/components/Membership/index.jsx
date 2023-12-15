@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Button } from "../index";
 import { Link } from "react-router-dom";
 import { selectIsAuth } from "../../redux/slices/auth";
-import { fetchRemoveMembership} from "../../redux/slices/memberships"
+import { fetchRemoveMembership } from "../../redux/slices/memberships";
 
 import styles from "./Membership.module.scss";
 
@@ -26,6 +26,9 @@ const Membership = ({
     }
   };
 
+  const formattedStartDate = new Date(startDate).toLocaleDateString();
+  const formattedEndDate = new Date(endDate).toLocaleDateString();
+
   return (
     <div className={styles.membershipCard}>
       <h2 className={styles.name}>{name}</h2>
@@ -33,7 +36,7 @@ const Membership = ({
       <p className={styles.price}>Price: ${price}</p>
       <p className={styles.gym}>Gym: {gym}</p>
       <p className={styles.dates}>
-        Dates: {startDate} - {endDate}
+        Dates: {formattedStartDate} - {formattedEndDate}
       </p>
       <div className={styles.buttons}>
         {isAuth ? (
