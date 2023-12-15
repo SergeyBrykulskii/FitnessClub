@@ -1,7 +1,30 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import { Button } from "../index";
+import { selectIsAuth } from "../../redux/slices/auth";
+import { fetchRemoveMembership} from "../../redux/slices/memberships"
+
 import styles from "./Membership.module.scss";
 
-const Membership = ({ name, description, price, gym, startDate, endDate }) => {
+const Membership = ({
+  id,
+  name,
+  description,
+  price,
+  gym,
+  startDate,
+  endDate,
+}) => {
+  const dispatch = useDispatch();
+  const isAuth = useSelector(selectIsAuth);
+
+  const onClickRemove = () => {
+    if (window.confirm("Are you sure?")) {
+      dispatch(fetchRemoveMembership(id));
+    }
+  };
+
   return (
     <div className={styles.membershipCard}>
       <h2 className={styles.name}>{name}</h2>
@@ -11,6 +34,17 @@ const Membership = ({ name, description, price, gym, startDate, endDate }) => {
       <p className={styles.dates}>
         Dates: {startDate} - {endDate}
       </p>
+      <div className={styles.buttons}>
+        {isAuth ? (
+          <>
+            <Button text="Delete" onClick={onClickRemove} />
+            <Button text="Edit" />
+            <Button text="More" />
+          </>
+        ) : (
+          <Button text="More" />
+        )}
+      </div>
     </div>
   );
 };

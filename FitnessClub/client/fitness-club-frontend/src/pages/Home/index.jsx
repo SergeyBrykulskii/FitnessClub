@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Membership from "../../components/Membership";
 
 import styles from "./Home.module.scss";
-import { fetchMemberships } from "../../redux/slices/membership";
+import { fetchMemberships } from "../../redux/slices/memberships";
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -28,6 +28,7 @@ export const Home = () => {
             ) : (
               <Membership
                 key={index}
+                id={membership._id}
                 name={membership.name}
                 description={membership.description}
                 price={membership.price}

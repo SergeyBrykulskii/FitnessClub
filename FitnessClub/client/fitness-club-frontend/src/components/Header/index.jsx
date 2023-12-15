@@ -50,7 +50,7 @@ export const Header = () => {
               <Button text="Registration" />
             </Link>
           </>
-        )}
+        )}  
       </div>
     </div>
   );
