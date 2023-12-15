@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { Button } from "../index";
+import { Link } from "react-router-dom";
 import { selectIsAuth } from "../../redux/slices/auth";
 import { fetchRemoveMembership} from "../../redux/slices/memberships"
 
@@ -38,7 +39,9 @@ const Membership = ({
         {isAuth ? (
           <>
             <Button text="Delete" onClick={onClickRemove} />
-            <Button text="Edit" />
+            <Link to={`/membership/${id}/edit`}>
+              <Button text="Edit" />
+            </Link>
             <Button text="More" />
           </>
         ) : (
