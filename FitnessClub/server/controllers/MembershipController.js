@@ -117,3 +117,36 @@ export const createWithGymName = async (req, res) => {
         });
     }
 };
+
+export const updateWithGymName = async (req, res) => {
+    try {
+        const membershipId = req.params.id;
+        const { gymName, ...updateFields } = req.body;
+
+        const gym = await Gym.findOne({ name: gymName });
+
+        if (!gym) {
+            return res.status(404).json({ message: 'Спортзал не найден' });
+        }
+
+        updateFields.gym = gym._id;
+
+        Membership.findByIdAndUpdate(membershipId, updateFields)
+            .then(() => {
+                res.json({
+                    success: true,
+                });
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).json({
+                    message: 'Что-то пошло не так',
+                });
+            });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({
+            message: 'Что-то пошло не так',
+        });
+    }
+};
