@@ -30,12 +30,12 @@ export const AddMembership = () => {
     };
 
     try {
-      const { response } = isEditing
+      const response = isEditing
         ? await axios.patch(`/membershipGymName/${id}`, membershipData)
         : await axios.post("/membershipGymName", membershipData);
       console.log(response.data);
 
-      navigate("home");
+      navigate("/");
     } catch (error) {
       console.error(error);
     }
